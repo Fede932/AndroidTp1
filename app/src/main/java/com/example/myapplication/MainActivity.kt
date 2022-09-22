@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity() {
             ingresar()
 
         }
-
+        emailFocusListener()
+        passwordFocusListener()
     }
 
     private fun clearAllErrorMessages() {
@@ -96,6 +97,22 @@ class MainActivity : AppCompatActivity() {
         errorText.text = message
         errorText.setTextColor(getColor(R.color.success))
         errorText.visibility = View.VISIBLE
+    }
+    private fun emailFocusListener()
+    {
+        emailAddress.setOnFocusChangeListener { _, focused ->
+            if(!focused)
+            {validarMail()
+            }
+        }
+    }
+    private fun passwordFocusListener()
+    {
+        passwordText.setOnFocusChangeListener { _, focused ->
+            if(!focused)
+            {validarPassword()
+            }
+        }
     }
 
 
